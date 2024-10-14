@@ -1,4 +1,4 @@
-<template class="flex items-center justify-center">
+<template class="flex items-center justify-center ">
   <RegistrationComponent />
 </template>
 

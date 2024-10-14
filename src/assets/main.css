@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+    font-family: "KanitBold";
+    src: url("/fonts/Kanit-Bold.ttf");
+}
+@font-face {
+    font-family: "KanitExtraBold";
+    src: url("/fonts/Kanit-Bold.ttf");
+}
+@font-face {
+    font-family: "KanitMedium";
+    src: url("/fonts/Kanit-Medium.ttf");
+}
