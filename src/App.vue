@@ -1,7 +1,7 @@
 <template>
   <RegistrationComponent />
-  <HeaderComponent />
-  <profileComponent />
+  <!-- <HeaderComponent />
+  <profileComponent /> -->
 </template>
 
 

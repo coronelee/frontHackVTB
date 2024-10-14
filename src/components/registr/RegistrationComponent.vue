@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute top-1/2 -translate-y-1/2 left-[75%] -rotate-[20deg] h-96 w-96"><img src="/logo.svg" alt="">
+    <div class="absolute top-1/2 -translate-y-1/2 left-[72%] -rotate-[20deg] h-96 w-96"><img src="/logo.svg" alt="">
     </div>
     <div class="w-screen h-screen flex items-center justify-center bg-white">
         <div
