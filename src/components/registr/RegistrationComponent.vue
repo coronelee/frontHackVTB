@@ -4,8 +4,8 @@
     </div>
     <div class="w-screen h-screen flex items-center justify-center bg-white">
         <div
-            class="w-1/2 max-[1260px]:w-4/5 h-4/5 max-[550px]:w-full max-[550px]:h-full bg-white rounded-3xl overflow-hidden relative shadow-2xl flex items-center justify-center  [&>*]:flex-col [&>*]:px-10  [&>*]:h-full [&>*]:justify-center [&>*]:items-center ">
-            <div class="gap-10 flex max-[800px]:hidden text-white absolute top-0 left-0 px-10 transition-all duration-300"
+            class="w-1/2 max-[1260px]:w-4/5 h-4/5 max-[550px]:w-full max-[550px]:h-full bg-white rounded-3xl overflow-hidden relative min-[550px]:shadow-2xl flex items-center justify-center  [&>*]:flex-col [&>*]:px-10  [&>*]:h-full [&>*]:justify-center [&>*]:items-center ">
+            <div class="gap-10 flex w-1/2 max-[800px]:hidden text-white absolute top-0 left-0 px-10 transition-all duration-300"
                 id="hide">
                 <span class="text-3xl text-center font-JostExtraBold">{{ stateReg == 'reg' ? 'Добро пожаловать назад!' :
                     'Зарегистрироваться'
