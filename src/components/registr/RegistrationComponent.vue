@@ -16,8 +16,8 @@
                 <button @click="changeReg()"
                     class="border border-white rounded-3xl px-5 py-2 uppercase font-JostExtraBold">Продолжить</button>
             </div>
-
-            <div class="text-center flex gap-10 w-full max-[800px]:hidden">
+            <!-- :style="stateRegMobile == true < 800 ? 'display: none' : 'display: flex'" -->
+            <div class="text-center flex gap-10 w-full" v-if="pageReg == 'signin' || !stateRegMobile">
                 <div class="flex flex-col gap-4">
                     <span class="text-3xl font-JostExtraBold">Войти в аккаунт</span>
                     <span class="text-sm text-gray-500 font-JostMedium">На введенный Вами телефон позвонит номер,
@@ -43,10 +43,15 @@
                     <button @click="call()" class="border border-gray-200 rounded-3xl px-5 py-2">{{ calling ?
                         'Войти'
                         : 'Позвонить' }}</button>
+                    <span class="min-[800px]:hidden">Или</span>
+
+                    <button @click="changeRegMobile()"
+                        class="min-[800px]:hidden border border-gray-200 rounded-3xl px-5 py-2">Создать
+                        аккаунт</button>
                 </div>
             </div>
-
-            <div class="text-center flex gap-10  w-full ">
+            <!-- :style="stateRegMobile == false ? 'display: none' : 'display: flex'" -->
+            <div class="text-center flex gap-10 w-full" v-if="pageReg == 'reg' || !stateRegMobile">
                 <div class="flex flex-col gap-4">
                     <span class="text-3xl font-JostExtraBold">Создать аккаунт</span>
                     <span class="text-sm text-gray-500 font-JostMedium">На введенный Вами телефон позвонит номер,
@@ -72,6 +77,10 @@
                     <button @click="call()" class="border border-gray-200 rounded-3xl px-5 py-2">{{ calling ?
                         'Зарегистрироваться'
                         : 'Позвонить' }}</button>
+                    <span class="min-[800px]:hidden">Или</span>
+                    <button @click="changeRegMobile()"
+                        class="min-[800px]:hidden border border-gray-200 rounded-3xl px-5 py-2">Войти в
+                        аккаунт</button>
                 </div>
             </div>
         </div>
@@ -86,11 +95,18 @@ const phoneInput = ref(null);
 
 const stateReg = ref('reg');
 const calling = ref(false);
-
-
+const stateRegMobile = ref(false);
+const windowWidth = ref(0);
+const pageReg = ref('reg');
 onMounted(() => {
     const mask = IMask(phoneInput.value, {
         mask: '(000) 000-00-00'
+    });
+
+    window.addEventListener('resize', () => {
+        windowWidth.value = window.innerWidth
+        windowWidth.value < 800 ? stateRegMobile.value = true : stateRegMobile.value = false
+        console.log(windowWidth.value, stateRegMobile.value)
     });
 })
 
@@ -98,7 +114,10 @@ const changeReg = () => {
     const hide = document.getElementById('hide')
     stateReg.value == 'log' ? [stateReg.value = 'reg', hide.style.left = '0'] : [stateReg.value = 'log', hide.style.left = '50%']
 }
-
+const changeRegMobile = () => {
+    pageReg.value == 'reg' ? pageReg.value = 'signin' : pageReg.value = 'reg'
+    console.log(window.innerWidth)
+}
 const call = () => {
     calling.value = !calling.value
 }
