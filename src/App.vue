@@ -1,7 +1,10 @@
 <template>
   <RegistrationComponent />
-  <!-- <HeaderComponent />
-  <profileComponent /> -->
+  <div class="w-screen h-screen bg-white">
+    <!-- <HeaderComponent />
+    <profileComponent /> -->
+  </div>
+
 </template>
 
 

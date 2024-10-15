@@ -8,9 +8,9 @@ export default {
     extend: {},
 
     fontFamily: {
-      kanitBold: ["KanitBold", "sans-serif"],
-      kanitExtraBold: ["KanitExtraBold", "sans-serif"],
-      kanitMedium: ["KanitMedium", "sans-serif"],
+      JostBold: ["JostBold", "sans-serif"],
+      JostExtraBold: ["JostExtraBold", "sans-serif"],
+      JostMedium: ["JostMedium", "sans-serif"],
     },
   },
   plugins: [],

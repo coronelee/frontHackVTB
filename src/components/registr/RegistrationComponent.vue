@@ -1,24 +1,26 @@
 <template>
-    <div class="absolute top-1/2 -translate-y-1/2 left-[72%] -rotate-[20deg] h-96 w-96"><img src="/logo.svg" alt="">
+    <div class="absolute top-1/2 -translate-y-1/2 left-[72%] -rotate-[20deg] h-96 w-96 max-[1260px]:hidden"><img
+            src="/logo.svg" alt="">
     </div>
     <div class="w-screen h-screen flex items-center justify-center bg-white">
         <div
-            class="w-1/2 h-4/5 bg-white rounded-3xl overflow-hidden relative shadow-2xl flex items-center justify-center [&>*]:flex [&>*]:flex-col [&>*]:px-10 [&>*]:w-1/2 [&>*]:h-full [&>*]:justify-center [&>*]:items-center ">
-            <div class="gap-10 bg-orange-400 text-white absolute top-0 left-0 px-10 transition-all duration-300"
+            class="w-1/2 max-[1260px]:w-4/5 h-4/5 max-[550px]:w-full max-[550px]:h-full bg-white rounded-3xl overflow-hidden relative shadow-2xl flex items-center justify-center  [&>*]:flex-col [&>*]:px-10  [&>*]:h-full [&>*]:justify-center [&>*]:items-center ">
+            <div class="gap-10 flex max-[800px]:hidden text-white absolute top-0 left-0 px-10 transition-all duration-300"
                 id="hide">
-                <span class="text-3xl font-kanitExtraBold">{{ stateReg == 'reg' ? 'Добро пожаловать назад!' :
+                <span class="text-3xl text-center font-JostExtraBold">{{ stateReg == 'reg' ? 'Добро пожаловать назад!' :
                     'Зарегистрироваться'
                     }}</span>
-                <span class="font-kanitMedium">
+                <span class="font-JostMedium">
                     {{ stateReg == 'reg' ? 'Войти в свой аккаунт' : 'Создать аккаунт в 1 шаг!' }}</span>
                 <button @click="changeReg()"
-                    class="border border-white rounded-3xl px-5 py-2 uppercase font-kanitExtraBold">Продолжить</button>
+                    class="border border-white rounded-3xl px-5 py-2 uppercase font-JostExtraBold">Продолжить</button>
             </div>
 
-            <div class="text-center gap-10 w-1/2">
+            <div class="text-center flex gap-10 w-full max-[800px]:hidden">
                 <div class="flex flex-col gap-4">
-                    <span class="text-3xl font-kanitExtraBold">Войти в аккаунт</span>
-                    <span class="text-sm text-gray-500 font-kanitMedium">На введенный номер позвонит номер, необходимо
+                    <span class="text-3xl font-JostExtraBold">Войти в аккаунт</span>
+                    <span class="text-sm text-gray-500 font-JostMedium">На введенный Вами телефон позвонит номер,
+                        необходимо
                         ввести 4 последних
                         цифры номера</span>
                 </div>
@@ -43,10 +45,11 @@
                 </div>
             </div>
 
-            <div class="text-center gap-10 w-1/2">
+            <div class="text-center flex gap-10  w-full ">
                 <div class="flex flex-col gap-4">
-                    <span class="text-3xl font-kanitExtraBold">Создать аккаунт</span>
-                    <span class="text-sm text-gray-500 font-kanitMedium">На введенный номер позвонит номер, необходимо
+                    <span class="text-3xl font-JostExtraBold">Создать аккаунт</span>
+                    <span class="text-sm text-gray-500 font-JostMedium">На введенный Вами телефон позвонит номер,
+                        необходимо
                         ввести 4 последних
                         цифры номера</span>
                 </div>
@@ -96,7 +99,7 @@ const changeReg = () => {
 }
 
 const call = () => {
-    calling.value = true
+    calling.value = !calling.value
 }
 </script>
 

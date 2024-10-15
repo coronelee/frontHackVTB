@@ -4,14 +4,19 @@
 
 
 @font-face {
-    font-family: "KanitBold";
-    src: url("/fonts/Kanit-Bold.ttf");
+    font-family: "JostBold";
+    src: url("/fonts/Jost-Bold.ttf");
 }
 @font-face {
-    font-family: "KanitExtraBold";
-    src: url("/fonts/Kanit-Bold.ttf");
+    font-family: "JostExtraBold";
+    src: url("/fonts/Jost-ExtraBold.ttf");
 }
 @font-face {
-    font-family: "KanitMedium";
-    src: url("/fonts/Kanit-Medium.ttf");
+    font-family: "JostMedium";
+    src: url("/fonts/Jost-Medium.ttf");
+}
+
+
+body{
+    overflow-y: hidden;
 }
