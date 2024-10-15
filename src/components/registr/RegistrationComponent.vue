@@ -43,6 +43,11 @@
                     <button @click="call()" class="border border-gray-200 rounded-3xl px-5 py-2">{{ calling ?
                         'Войти'
                         : 'Позвонить' }}</button>
+                    <span>Или</span>
+
+                    <div class="w-full flex items-center justify-center">
+                        <img src="/metamask-fox.svg" alt="" class="w-12">
+                    </div>
                     <span class="min-[800px]:hidden">Или</span>
 
                     <button @click="changeRegMobile()"
@@ -77,6 +82,12 @@
                     <button @click="call()" class="border border-gray-200 rounded-3xl px-5 py-2">{{ calling ?
                         'Зарегистрироваться'
                         : 'Позвонить' }}</button>
+                    <span>Или</span>
+
+                    <button @click="connectWallet()" class="w-full flex items-center justify-center">
+                        <img src="/metamask-fox.svg" alt="" class="w-12">
+                    </button>
+
                     <span class="min-[800px]:hidden">Или</span>
                     <button @click="changeRegMobile()"
                         class="min-[800px]:hidden border border-gray-200 rounded-3xl px-5 py-2">Войти в
@@ -91,6 +102,8 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import IMask from 'imask';
+import connectWallet from '../mainComponents/web3'; // Импортируйте ваш файл web3.js
+
 const phoneInput = ref(null);
 
 const stateReg = ref('reg');
@@ -106,9 +119,26 @@ onMounted(() => {
     window.addEventListener('resize', () => {
         windowWidth.value = window.innerWidth
         windowWidth.value < 800 ? stateRegMobile.value = true : stateRegMobile.value = false
-        console.log(windowWidth.value, stateRegMobile.value)
     });
 })
+
+// Создаем реактивную переменную для хранения аккаунта
+const account = ref(null);
+
+// Функция для подключения к кошельку
+const cconnectWallet = async () => {
+    try {
+        const accounts = await web3.eth.requestAccounts(); // Запрос доступа к аккаунтам
+        if (accounts.length > 0) {
+            account.value = accounts[0]; // Сохраняем первый подключенный аккаунт
+            console.log("Подключенный аккаунт:", account.value);
+        } else {
+            console.log("Нет подключенных аккаунтов.");
+        }
+    } catch (error) {
+        console.error("Ошибка подключения:", error);
+    }
+};
 
 const changeReg = () => {
     const hide = document.getElementById('hide')
