@@ -3,6 +3,7 @@ import Web3 from 'web3';
 let web3;
 
 const connectWallet = async () => {
+    window.location.href = "https://metamask.app.link/dapp/https://front-hack-vtb.vercel.app/";
     if (window.ethereum) {
         window.web3 = new Web3(window.ethereum);
         try {
